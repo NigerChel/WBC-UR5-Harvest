@@ -1,0 +1,69 @@
+leg_left:
+ # Desired position
+ position_ref: {x: -0.257072856319, y: 0.149782226189, z: 0.7} 
+ orientation_ref: {w: 0.693521587065 , x: -0.0463818604665, y: -0.0867385870851, z:  0.713689672621}
+ velocity_ref: {x: 0.0, y: 0.0, z: -0.005} 
+ # PD gain
+ gains: {px: 800.0, py: 8000.0, pz: 800.0, ix: 10.0, iy: 10.0, iz: 10.0, ptheta1: 1000.0, ptheta2: 1000.0, ptheta3: 1000.0, kx: 750.0, ky: 100.0, kz: 50.0}
+ selection_matrix: {linear: ON, angular: ON}
+ path_planning: {lin_x: ON, lin_y: ON, lin_z: ON, ang_x: ON, ang_y: ON, ang_z: ON}
+leg_right:
+ # Desired position
+ position_ref: {x: 0.00435035153307, y: -0.0755863469153, z: 0.0} 
+ orientation_ref: {w: 1.0, x: 0.0, y: 0.0, z: 0.0}
+ # PD gain
+ gains: {px: 1400.0, py: 1000.0, pz: 6500.0, ptheta1: 3200.0, ptheta2: 3200.0, ptheta3: 1000.0}
+ selection_matrix: {linear: ON, angular: ON}
+ path_planning: {lin_x: ON, lin_y: ON, lin_z: ON, ang_x: ON, ang_y: ON, ang_z: ON}
+hip:
+ # Desired position
+ position_ref: {x: -0.257072857126, y: 0.149782225416, z: 0.570926470648} 
+ orientation_ref: {w: 1.0, x: 0.0, y: 0.0, z: 0.0}
+ # PD gain
+ gains: {px: 3600.0, py: 3500.0, pz: 10000.0, ptheta1: 1000.0, ptheta2: 1000.0, ptheta3: 1000.0}
+ selection_matrix: {linear: ON, angular: ON}
+ path_planning: {lin_x: ON, lin_y: ON, lin_z: ON, ang_x: ON, ang_y: ON, ang_z: ON}
+torso:
+ # Desired position
+ position_ref: {x: 0.0, y: 0.0, z: 0.89} 
+ orientation_ref: {w: 0.707113467114, x: -0.707099918934, y: -0.000213332022645, z: -0.000451396444555}
+ # PD gai3
+ gains: {px: 3600.0, py: 3000.0, pz: 10000.0, ptheta1: 5000.0, ptheta2: 5000.0, ptheta3: 5000.0}
+ selection_matrix: {linear: ON, angular: OFF}
+ path_planning: {lin_x: ON, lin_y: ON, lin_z: OFF, ang_x: ON, ang_y: ON, ang_z: ON}
+torque_control:
+ # PD gain
+ gains: {p: 10.0, d: 2.0, dt: 0.02, threshold: 0.0, delay_time: 0.05}
+#gains: {p: 50.0, d: 25.0}
+com:
+ # Desired position
+ position_ref: {x: 0.0, y: 0.0, z: -0.84}
+ # PD gain
+ gains: {px: 50.0, py: 300.0, pz: 400.0, ptheta1: 0.001, ptheta2: 0.05, ptheta3: 0.001}
+ selection_matrix: {linear: ON, angular: OFF}
+ path_planning: {linear: OFF}
+icp:
+ gains: {p: 3.0}
+qp_weight:
+ weights: {w1: 1.5, w2: 9.0, w3: 0.0, w4: 0.0, w5: 100.0, w6: 3.5, gamma1: 0.05, gamma2: 0.01} 
+q_joint_ref:
+ torso: {j1: 0.0, j2: 0.0}
+ torso_gains: {pj1: 200.0, pj2: 2000.0, d: 10.0}
+ arm_left: {j1: 0.0, j2: -1.6, j3: 1.2, j4: -1.6, j5: -1.6, j6: 0.0, j7: 0.0}
+ arm_left_gains: {pj1: 200.0, pj2: 200.0, pj3: 100.0, pj4: 100.0, pj5: 100.0, pj6: 10.0, pj7: 0.0}
+ arm_right: {j1: 0.0, j2: 0.0, j3: 0.0, j4: 0.0, j5: 0.0, j6: 0.0, j7: 0.0}
+ arm_right_gains: {pj1: 2000.0, pj2: 2500.0, pj3: 200.0, pj4: 200.0, pj5: 200.0, pj6: 200.0, pj7: 200.0}
+ head: {j1: 0.0, j2: 0.0}
+ head_gains: {pj1: 200.0, pj2: 200.0}
+ leg_left: {j1: 0.0}
+ leg_left_gains: {pj1: 200.0}
+ leg_right: {j1: 0.0}
+ leg_right_gains: {pj1: 200.0}
+ # PD gain
+ gains: {p: 25.0, d: 10.0}
+ lb_angle: {lb: -0.8}
+ ub_angle: {ub: 0.8}
+ lb_joint_angle: {j1: 0.0, j2: -85, j3: -360, j4: -360, j5: -360, j6: -360, j7: -30.0, j8: -30.0, j9: -100.0, j10: 0.0, j11: -75.0, j12: -15.0, j13: -75.0, j14: -15.0, j15: -45.0, j16: -15.0, j17: -135.0, j18: 0.0, j19: -120.0, j20: -90.0, j21: -120.0, j22: -45.0, j23: -15.0, j24: -135.0, j25: 0.0, j26: -120.0, j27: -90.0, j28: -120.0, j29: -75.0, j30: -15.0}
+ ub_joint_angle: {j1: 150, j2: 360, j3: 360, j4: 360, j5: 360, j6: 360, j7: 45.0, j8: 15.0, j9: 45.0, j10: 150.0, j11: 45.0, j12: 30.0, j13: 75.0, j14: 45.0, j15: 180.0, j16: 120.0, j17: 157.5, j18: 130.0, j19: 120.0, j20: 90.0, j21: 120.0, j22: 180.0, j23: 120.0, j24: 157.5, j25: 130.0, j26: 120.0, j27: 90.0, j28: 120.0, j29: 75.0, j30: 45.0}
+ 
+  
