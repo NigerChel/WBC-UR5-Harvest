@@ -101,11 +101,11 @@ roslaunch ur_gripper_gazebo ur_gripper_hande_cubes.launch ur_robot:=ur5e grasp_p
 # Re-source environment (recommended before running nodes)
 source devel/setup.bash
 
-# 🧠 Launch the whole-body controller node with PD parameters for simulation.
-rosrun wbc_ur5 sim_wbc_ur5_param_pd
-
 # 🔄 Launch a node to publish whole-body state parameters (like task targets).
 rosrun whole_body_state_msgs wbs_ur5_param.py
+
+# 🧠 Launch the whole-body controller node with PD parameters for simulation.
+rosrun wbc_ur5 sim_wbc_ur5_param_pd
 
 # (Optional) Source again to avoid environment issues
 source devel/setup.bash
