@@ -1,85 +1,126 @@
-# WBC-UR5-Harvest
+# 🤖 WBC-UR5-Harvest
 
-Whole-Body Control (WBC) system for a UR5e robotic arm applied to fruit harvesting.
+**Whole-Body Control (WBC)** system for a **UR5e robotic arm**, tailored for precision **fruit harvesting** in real-world agricultural environments.
 
-This repository contains ROS Melodic packages implementing a whole-body control algorithm for a 6-DoF UR5e manipulator, based on the approach of Twan Koolen. The system has been tested both in simulation (Gazebo) and on a real robot.
+This repository provides **ROS Melodic** packages implementing a whole-body control strategy for a 6-DoF **UR5e** manipulator, inspired by **Twan Koolen's** task-prioritized control approach. The system has been tested in **Gazebo simulation** and on a **real robot**.
 
-## 🛠 System Overview
-- **Robot platform**: UR5e
-- **ROS version**: Melodic
-- **OS**: Ubuntu 18.04
-- **Simulation**: Gazebo
-- **Real-world deployment**: Fully compatible
-- **Main package**: `wbc_ur5`
+---
 
-## 📦 Main Features
-- Whole-body control for manipulation under task-space constraints
-- Gravity compensation and Cartesian task tracking
-- Integrated with real-time fruit harvesting application
-- Modular architecture based on ROS nodes and services
+## 🛠️ System Overview
+
+| Component           | Specification          |
+|---------------------|------------------------|
+| 🤖 Robot Platform    | UR5e                   |
+| 🐧 Operating System | Ubuntu 18.04           |
+| 🔧 ROS Version      | Melodic                |
+| 🧪 Simulation       | Gazebo                 |
+| 🤝 Real Deployment  | Fully compatible       |
+| 📦 Main Package     | `wbc_ur5`              |
+
+---
+
+## 📦 Features
+
+- ✅ **Whole-body control** with task prioritization  
+- 🎯 Cartesian task tracking with **gravity compensation**  
+- 🍏 Integrated for **real-time fruit harvesting**  
+- 🧩 Modular ROS architecture using nodes and services  
+- 🤖 Compatible with **both simulation and physical UR5e**  
+
+---
 
 ## 📁 Project Structure
 
+```
 WBC-UR5-Harvest/
 ├── README.md
 ├── src/
-│ └── [ROS packages including wbc_ur5, robot description, controllers, etc.]
+│   ├── wbc_ur5/                  # Whole-body controller
+│   ├── ur5_description/         # Robot model and URDF
+│   ├── ur5_controllers/         # Joint and task-space controllers
+│   └── ...                      # Additional utility packages
+```
+
+---
 
 ## 🚀 Installation
 
-1. Clone the repository into your catkin workspace:
-   ```bash
-   cd ~/catkin_ws/src
-   git clone https://github.com/NigerChel/WBC-UR5-Harvest.git
-   cd ..
-   catkin build
-   source devel/setup.bash
+1. Clone into your catkin workspace:
 
-   Install necessary dependencies:
-   sudo apt-get update
-  rosdep update
-  rosdep install --from-paths src --ignore-src -r -y
+```bash
+cd ~/catkin_ws/src
+git clone https://github.com/NigerChel/WBC-UR5-Harvest.git
+cd ..
+catkin_make
+source devel/setup.bash
+```
 
-  🧪 Usage
-Simulation in Gazebo:
+2. Install dependencies:
+
+```bash
+sudo apt-get update
+rosdep update
+rosdep install --from-paths src --ignore-src -r -y
+```
+
+---
+
+## 🧪 Usage
+
+### ▶️ Run in Simulation (Gazebo)
+
+```bash
 roslaunch wbc_ur5 simulation.launch
+```
 
-Real Robot:
-Ensure the UR5e is connected and configured with the correct IP.
+### 🤖 Run on Real Robot
+
+Make sure the **UR5e is powered on and reachable** at the correct IP address:
+
+```bash
 roslaunch wbc_ur5 real_robot.launch robot_ip:=192.168.x.x
+```
 
-🧠 System Architecture
-The system uses a whole-body controller to solve task-space control problems subject to joint constraints, gravity compensation, and redundancy resolution. The architecture includes:
+---
 
-task_controller: Computes desired joint torques
+## 🧠 System Architecture
 
-ur5_interface: Interfaces with the hardware or simulation
+The WBC system solves inverse dynamics using a **task-prioritized QP controller**. It includes:
 
-state_publisher: Publishes robot state and transforms
+- `task_controller`: Solves for joint torques to achieve Cartesian objectives  
+- `ur5_interface`: Communicates with hardware or simulation  
+- `state_publisher`: Publishes joint states and TF frames  
+- `trajectory_manager`: Handles motion goals for harvesting tasks  
 
-trajectory_manager: Manages task goals for harvesting
+All components are decoupled and communicate via **standard ROS topics and services**.
 
-Each ROS node communicates via standard ROS topics and services to ensure modularity.
+---
 
-🍎 Harvesting Task Description
-This project was designed as a contribution to a real-world agricultural harvesting task:
+## 🍎 Harvesting Task Description
 
-The robot approaches the fruit with visual-servoing or fixed pose commands
+This project was designed for **real-world agricultural harvesting**, with the following workflow:
 
-Executes Cartesian tasks with constraints using the WBC solver
+1. Approach the fruit using visual servoing or predefined Cartesian poses  
+2. Execute tasks with **end-effector constraints** to avoid fruit damage  
+3. Use WBC for **smooth, constrained motion** in real-time  
+4. Evaluate in both simulation and real orchard environments  
 
-Incorporates end-effector motion constraints to avoid damaging the fruit
+The control strategy is based on **Twan Koolen's WBC formulation**, using **Quadratic Programming (QP)** with strict task prioritization.
 
-Control is based on Twan Koolen's WBC formulation using quadratic programming (QP) with task prioritization. The real robot was tested on multiple harvesting experiments.
+---
 
-📌 Notes
-Developed as part of a research project at Tecnológico de Monterrey
+## 📌 Notes
 
-Although developed by a specialist (Niger Chel) during work at the institution, authorship is attributed to the Tec
+- 🧑‍🎓 This work originated as part of the **Ph.D. research** of *Niger Chel* at **CINVESTAV**, where the whole-body control approach was first developed and tested in simulated environments.  
+- 🏫 The system was later applied in real harvesting scenarios during his role as **Research Specialist** at **Tecnológico de Monterrey**, in a project focused on **intelligent robotics for precision agriculture**.  
+- 🔄 Compatible with both **simulation** and **physical UR5e deployment**.
 
-Compatible with both simulation and physical deployment on UR5e
+---
 
-Developed at Tecnológico de Monterrey as part of an applied research project in intelligent robotics for precision agriculture.
+## 📄 License & Acknowledgments
+
+This project was developed as part of academic and applied research, and remains attributed to **Tecnológico de Monterrey**.  
+Authored and maintained by *Niger Chel*, 2025.
 
 
 
