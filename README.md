@@ -177,7 +177,7 @@ All components are decoupled and communicate via **standard ROS topics and servi
 
 ---
 
-## 🍎 Harvesting Task Description
+## 🍓 Harvesting Task Description
 
 This project was designed for **real-world agricultural harvesting**, with the following workflow:
 
@@ -195,8 +195,9 @@ The control strategy is based on **Twan Koolen's WBC formulation**, using **Quad
 This project was developed by a multidisciplinary team as part of an applied robotics research initiative at **Tecnológico de Monterrey**:
 
 - 👩‍🏫 **Rita Fuentes-Aguilar** – *Project Leader* 
-- 👁️‍🗨️ **Eduardo Morales-Vargas** – *Postdoctoral Researcher*, contributed to the **vision and perception system**  
-- 🔧 **Gustavo Hernández-Melgarejo** – *Postdoctoral Researcher*, developed and optimized the **robotic mechanical platform**  
+- 🔧 **Gustavo Hernández-Melgarejo** – *Postdoctoral Researcher*, developed and optimized the **robotic mechanical platform**
+- 👁️‍🗨️ **Eduardo Morales-Vargas** – *Postdoctoral Researcher*, contributed to the **vision and perception system**
+- **Enrique Cuan-Urquizo** and **Armando Roman-Flores** – supported the development of a **robotic gripper**
 - 🤖 **Niger Chel-Puc** – *Specialist in Intelligent Robotics*, led the **whole-body control design**, integration, and implementation in both simulation and real hardware
 
 ---
