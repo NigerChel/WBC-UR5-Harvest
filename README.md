@@ -87,7 +87,36 @@ rosdep install --from-paths src --ignore-src -r -y
 ### ▶️ Run in Simulation (Gazebo)
 
 ```bash
-roslaunch wbc_ur5 simulation.launch
+
+# Go to your ROS workspace
+cd ~/ros_ws/
+
+# Source your workspace to load packages and dependencies
+source devel/setup.bash
+
+# 🚀 Launch Gazebo with the UR5e robot, Robotiq gripper, and cubes to simulate fruits.
+# - 'grasp_plugin:=1' enables the plugin that allows the gripper to attach to objects.
+roslaunch ur_gripper_gazebo ur_gripper_hande_cubes.launch ur_robot:=ur5e grasp_plugin:=1
+
+# Re-source environment (recommended before running nodes)
+source devel/setup.bash
+
+# 🧠 Launch the whole-body controller node with PD parameters for simulation.
+rosrun wbc_ur5 sim_wbc_ur5_param_pd
+
+# 🔄 Launch a node to publish whole-body state parameters (like task targets).
+rosrun whole_body_state_msgs wbs_ur5_param.py
+
+# (Optional) Source again to avoid environment issues
+source devel/setup.bash
+
+# 🤖 Start the control routine that executes a task-space trajectory to simulate harvesting.
+# - The `-r` flag means the routine runs automatically.
+rosrun ur_control routine_sim_controller_examples_wout_cam.py -r
+
+# 📊 Plot task-space tracking results to visualize controller performance.
+rosrun wbc_ur5 sim_plot_wbs_task_space_pd.py
+
 ```
 
 ### 🤖 Run on Real Robot
