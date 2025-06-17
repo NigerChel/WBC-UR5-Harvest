@@ -113,7 +113,7 @@ The control strategy is based on **Twan Koolen's WBC formulation**, using **Quad
 
 This project was developed by a multidisciplinary team as part of an applied robotics research initiative at **Tecnológico de Monterrey**:
 
-- 🧑‍🏫 **Rita Fuentes-Aguilar** – *Project Leader*  
+- 👩‍🏫 **Rita Q. Fuentes-Aguilar** – *Project Leader* 
 - 👁️‍🗨️ **Eduardo Morales-Vargas** – *Postdoctoral Researcher*, contributed to the **vision and perception system**  
 - 🔧 **Gustavo Hernández-Melgarejo** – *Postdoctoral Researcher*, developed and optimized the **robotic mechanical platform**  
 - 🤖 **Niger Chel-Puc** – *Specialist in Intelligent Robotics*, led the **whole-body control design**, integration, and implementation in both simulation and real hardware
