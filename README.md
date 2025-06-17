@@ -2,7 +2,7 @@
 
 **Whole-Body Control (WBC)** system for a **UR5e robotic arm**, tailored for precision **fruit harvesting** in real-world agricultural environments.
 
-This repository provides **ROS Melodic** packages implementing a whole-body control strategy for a 6-DoF **UR5e** manipulator, inspired by **Twan Koolen's** task-prioritized control approach. The system has been tested in **Gazebo simulation** and on a **real robot**.
+This repository provides **ROS Melodic** packages implementing a whole-body control strategy for a 6-DoF **UR5e** manipulator. The system has been tested in **Gazebo simulation** and on a **real robot**.
 
 ---
 
