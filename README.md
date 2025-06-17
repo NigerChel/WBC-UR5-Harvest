@@ -124,7 +124,42 @@ rosrun wbc_ur5 sim_plot_wbs_task_space_pd.py
 Make sure the **UR5e is powered on and reachable** at the correct IP address:
 
 ```bash
-roslaunch wbc_ur5 real_robot.launch robot_ip:=192.168.x.x
+# Go to your ROS workspace
+cd ~/ros_ws/
+
+# Load your workspace environment
+source devel/setup.bash
+
+# 🛠️ Load the calibration correction for accurate kinematics
+roslaunch ur_calibration calibration_correction.launch \
+  robot_ip:=192.168.0.100 \
+  target_filename:="$(rospack find ur_calibration)/ex-ur5e_calibration.yaml"
+
+# 🔧 Bring up the UR5e ROS driver with calibration
+roslaunch ur_robot_driver ur5_bringup.launch \
+  robot_ip:=192.168.0.100 \
+  kinematics_config:=$(rospack find ur_calibration)/ex-ur5_calibration.yaml
+
+# 📡 Start the whole-body state publisher (sets task goals)
+rosrun whole_body_state_msgs real_wbs_ur5_param.py
+
+# 🧠 Launch the whole-body controller (choose one of the modes)
+rosrun wbc_ur5 real_wbc_ur5_param_pd        # PD-based controller
+# or
+rosrun wbc_ur5 real_wbc_ur5_param_pir       # PIR-based controller
+
+# 🎯 (Optional) Start camera TF broadcaster and listener for vision alignment
+rosrun wbc_ur5 camera_tf2_broadcaster_poses.py
+rosrun wbc_ur5 camera_tf2_listener_poses.py
+
+# 📊 (Optional) Plot task-space tracking in real time
+rosrun wbc_ur5 real_plot_wbs_task_space_pd.py
+# or
+rosrun wbc_ur5 real_plot_wbs_task_space_pir.py
+
+# 🚀 Execute harvesting routine with interpolation (no vision)
+rosrun ur_control routine_real_controller_examples_with_interp.py -r
+
 ```
 
 ---
