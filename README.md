@@ -22,7 +22,7 @@ This repository provides **ROS Melodic** packages implementing a whole-body cont
 ## 📦 Features
 
 - ✅ **Whole-body control** with task prioritization  
-- 🎯 Cartesian task tracking with **gravity compensation**  
+- 🎯 Cartesian or joint space task tracking
 - 🍏 Integrated for **real-time fruit harvesting**  
 - 🧩 Modular ROS architecture using nodes and services  
 - 🤖 Compatible with **both simulation and physical UR5e**  
