@@ -109,6 +109,17 @@ The control strategy is based on **Twan Koolen's WBC formulation**, using **Quad
 
 ---
 
+## 👥 Project Team
+
+This project was developed by a multidisciplinary team as part of an applied robotics research initiative at **Tecnológico de Monterrey**:
+
+- 🧑‍🏫 **Rita Fuentes-Aguilar** – *Project Leader*  
+- 👁️‍🗨️ **Eduardo Morales-Vargas** – *Postdoctoral Researcher*, contributed to the **vision and perception system**  
+- 🔧 **Gustavo Hernández-Melgarejo** – *Postdoctoral Researcher*, developed and optimized the **robotic mechanical platform**  
+- 🤖 **Niger Chel-Puc** – *Specialist in Intelligent Robotics*, led the **whole-body control design**, integration, and implementation in both simulation and real hardware
+
+---
+
 ## 📌 Notes
 
 - 🧑‍🎓 This work originated as part of the **Ph.D. research** of *Niger Chel* at **CINVESTAV**, where the whole-body control approach was first developed and tested in simulated environments.  
@@ -117,7 +128,15 @@ The control strategy is based on **Twan Koolen's WBC formulation**, using **Quad
 
 ---
 
-## 📄 License & Acknowledgments
+## 🤝 Acknowledgments
+
+This work was supported by the **Challenge-Based Research Funding Program 2022**, grant number **I016-IAMSM006-C3-T3-E**, provided by **Tecnológico de Monterrey**.
+
+We gratefully acknowledge all collaborators and contributors to the success of this interdisciplinary project.
+
+---
+
+## 📄 License & Attribution
 
 This project was developed as part of academic and applied research, and remains attributed to **Tecnológico de Monterrey**.  
 Authored and maintained by *Niger Chel*, 2025.
