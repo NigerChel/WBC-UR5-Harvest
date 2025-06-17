@@ -168,7 +168,7 @@ rosrun ur_control routine_real_controller_examples_with_interp.py -r
 
 The WBC system solves inverse dynamics using a **task-prioritized QP controller**. It includes:
 
-- `task_controller`: Solves for joint torques to achieve Cartesian objectives  
+- `task_controller`: Solves for joint accelerations/torques to achieve Cartesian objectives  
 - `ur5_interface`: Communicates with hardware or simulation  
 - `state_publisher`: Publishes joint states and TF frames  
 - `trajectory_manager`: Handles motion goals for harvesting tasks  
@@ -181,7 +181,7 @@ All components are decoupled and communicate via **standard ROS topics and servi
 
 This project was designed for **real-world agricultural harvesting**, with the following workflow:
 
-1. Approach the fruit using visual servoing or predefined Cartesian poses  
+1. Approach the fruit using a realSense camera D35F or predefined Cartesian poses  
 2. Execute tasks with **end-effector constraints** to avoid fruit damage  
 3. Use WBC for **smooth, constrained motion** in real-time  
 4. Evaluate in both simulation and real orchard environments  
