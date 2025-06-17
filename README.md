@@ -38,7 +38,24 @@ WBC-UR5-Harvest/
 │   ├── wbc_ur5/                  # Whole-body controller
 │   ├── ur5_description/         # Robot model and URDF
 │   ├── ur5_controllers/         # Joint and task-space controllers
-│   └── ...                      # Additional utility packages
+│   ├── gazebo_ros_link_attacher/  # Gazebo plugin for link attachment
+│   ├── qpman/                   # QP solver manager
+│   ├── robotiq/                 # Robotiq gripper description
+│   ├── robotiq_urcap_control/  # URCap integration for Robotiq
+│   ├── ros_ur3/                 # UR3 robot support
+│   ├── trac_ik/                 # Inverse kinematics solver
+│   ├── universal_robot/         # UR robot description and config
+│   ├── universal_robots_ros_driver/  # ROS driver for UR robots
+│   ├── ur_ikfast/               # IKFast plugin for UR
+│   ├── ur_msgs/                 # Custom messages for UR
+│   ├── whole_body_state_conversions/  # WBC state conversions
+│   ├── whole_body_state_msgs/   # WBC message definitions
+│   └── whole_body_state_rviz_plugin/  # RViz WBC visualization plugin
+├── setup.bash
+├── setup.sh
+├── setup.zsh
+└── .rosinstall
+├── README.md
 ```
 
 ---
