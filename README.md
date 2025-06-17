@@ -32,7 +32,7 @@ WBC-UR5-Harvest/
    cd ~/catkin_ws/src
    git clone https://github.com/NigerChel/WBC-UR5-Harvest.git
    cd ..
-   catkin_make
+   catkin build
    source devel/setup.bash
 
    Install necessary dependencies:
